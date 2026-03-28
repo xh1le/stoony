@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>House of Thugs 2 | Official Game Site</title>
+    <meta
+      name="description"
+      content="House of Thugs 2 is a tense stealth game about breaking into dangerous homes, avoiding detection, and escaping with the score. Watch the trailer, explore screenshots, and follow development updates."
+    />
+    <meta
+      name="keywords"
+      content="House of Thugs 2, stealth game, indie game, game trailer, game screenshots, horror stealth, robbery game, official game website"
+    />
+    <meta name="author" content="House of Thugs 2" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ff7a00" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="House of Thugs 2 | Official Game Site" />
+    <meta
+      property="og:description"
+      content="Watch the trailer, explore screenshots, and get the latest updates for House of Thugs 2."
+    />
+    <meta property="og:image" content="https://files.catbox.moe/im072x.jpg" />
+    <meta property="og:url" content="https://your-site-url.com" />
+    <meta property="og:site_name" content="House of Thugs 2" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="House of Thugs 2 | Official Game Site"
+    />
+    <meta
+      name="twitter:description"
+      content="Watch the trailer, explore screenshots, and get the latest updates for House of Thugs 2."
+    />
+    <meta name="twitter:image" content="https://files.catbox.moe/im072x.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #050505;
+        --bg-soft: rgba(10, 10, 10, 0.88);
+        --card: rgba(255, 255, 255, 0.04);
+        --accent: #ff7a00;
+        --accent-glow: rgba(255, 122, 0, 0.4);
+        --text: #f2f2f2;
+        --muted: rgba(255, 255, 255, 0.68);
+        --soft: rgba(255, 255, 255, 0.12);
+        --header-height: 86px;
+        --radius: 12px;
+        --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+        --fs-xs: clamp(0.72rem, 0.68rem + 0.2vw, 0.84rem);
+        --fs-sm: clamp(0.88rem, 0.82rem + 0.3vw, 1rem);
+        --fs-base: clamp(1rem, 0.96rem + 0.35vw, 1.1rem);
+        --fs-md: clamp(1.15rem, 1.02rem + 0.65vw, 1.5rem);
+        --fs-lg: clamp(1.5rem, 1.18rem + 1.5vw, 2.4rem);
+        --fs-xl: clamp(2.2rem, 1.5rem + 3vw, 4.5rem);
+        --fs-hero: clamp(3.2rem, 8vw, 8.5rem);
+
+        --space-section: clamp(90px, 12vw, 180px);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--header-height);
+        background: var(--bg);
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      img,
+      iframe,
+      video {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 999px;
+      }
+
+      .video-container {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        overflow: hidden;
+        background: #000;
+      }
+
+      #bg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%) scale(1.08);
+        object-fit: cover;
+        filter: brightness(0.22) blur(14px);
+        will-change: transform;
+      }
+
+      .vignette {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.4)
+          ),
+          radial-gradient(circle, transparent 8%, rgba(0, 0, 0, 0.94) 100%);
+      }
+
+      header {
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: var(--header-height);
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .topbar {
+        max-width: 1400px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 clamp(16px, 3vw, 40px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .logo {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: clamp(0.85rem, 0.75rem + 0.4vw, 1.1rem);
+        letter-spacing: 0.3em;
+        color: #fff;
+        white-space: nowrap;
+      }
+
+      .logo b {
+        color: var(--accent);
+      }
+
+      .nav-wrapper {
+        position: static;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      .sector-trigger {
+        font-family: "JetBrains Mono", monospace;
+        font-size: var(--fs-xs);
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        color: #8f8f8f;
+        cursor: pointer;
+        padding: 0 20px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        transition: color 0.25s ease;
+        user-select: none;
+      }
+
+      .megamenu {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        background: rgba(5, 5, 5, 0.98);
+        backdrop-filter: blur(30px);
+        border-bottom: 2px solid var(--accent);
+        transition: max-height 0.6s var(--ease), opacity 0.35s var(--ease);
+      }
+
+      .nav-wrapper:hover .megamenu,
+      .nav-wrapper:focus-within .megamenu {
+        max-height: 540px;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-wrapper:hover .sector-trigger,
+      .nav-wrapper:focus-within .sector-trigger {
+        color: var(--accent);
+      }
+
+      .megamenu-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 70px) clamp(16px, 3vw, 40px);
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: clamp(20px, 3vw, 50px);
+      }
+
+      .nav-col h4 {
+        margin: 0 0 18px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 122, 0, 0.22);
+        font-family: "JetBrains Mono", monospace;
+        font-size: var(--fs-xs);
+        letter-spacing: 0.3em;
+        color: var(--accent);
+        opacity: 0.95;
+      }
+
+      .nav-col a {
+        display: block;
+        text-decoration: none;
+        padding: 10px 0;
+        font-size: var(--fs-sm);
+        font-weight: 700;
+        color: #fff;
+        opacity: 0.55;
+        transition: transform 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+      }
+
+      .nav-col a:hover {
+        opacity: 1;
+        color: var(--accent);
+        transform: translateX(8px);
+      }
+
+      .status-text {
+        font-size: var(--fs-sm);
+        color: var(--muted);
+      }
+
+      .container {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 clamp(16px, 3vw, 40px);
+        position: relative;
+        z-index: 1;
+      }
+
+      .section {
+        padding: var(--space-section) 0;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding-top: calc(var(--header-height) + 40px);
+      }
+
+      .hero-inner {
+        width: 100%;
+        max-width: 950px;
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        letter-spacing: 0.35em;
+        font-size: var(--fs-xs);
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0 0 18px;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        margin: 0;
+        font-size: var(--fs-hero);
+        font-weight: 900;
+        line-height: 0.88;
+        letter-spacing: -0.06em;
+        text-transform: uppercase;
+      }
+
+      .hero-title .accent {
+        color: var(--accent);
+      }
+
+      .hero-description {
+        max-width: 760px;
+        margin: 28px auto 0;
+        font-size: clamp(1rem, 0.9rem + 0.7vw, 1.25rem);
+        color: var(--muted);
+      }
+
+      .hero-meta {
+        margin-top: 28px;
+        font-family: "JetBrains Mono", monospace;
+        letter-spacing: 0.28em;
+        font-size: var(--fs-xs);
+        color: rgba(255, 255, 255, 0.45);
+        text-transform: uppercase;
+      }
+
+      .hero-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 42px;
+      }
+
+      .btn-main,
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 14px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: var(--fs-xs);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      }
+
+      .btn-main {
+        background: var(--accent);
+        color: #000;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-main:hover {
+        background: #fff;
+        box-shadow: 0 0 40px var(--accent-glow);
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.04);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      .section-heading {
+        margin: 0 0 16px;
+        font-size: var(--fs-xl);
+        font-weight: 900;
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+      }
+
+      .section-heading .accent {
+        color: var(--accent);
+      }
+
+      .section-intro {
+        max-width: 760px;
+        margin: 0 0 34px;
+        font-size: var(--fs-base);
+        color: var(--muted);
+      }
+
+      .trailer-box {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: #000;
+        box-shadow: 0 16px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      .trailer-box iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .protocols-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .protocol-step {
+        padding: 24px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--card);
+      }
+
+      .protocol-step h3 {
+        margin: 0 0 10px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: var(--fs-sm);
+        color: var(--accent);
+        letter-spacing: 0.08em;
+      }
+
+      .protocol-step p {
+        margin: 0;
+        font-size: var(--fs-base);
+        color: var(--muted);
+      }
+
+      .protocol-img {
+        margin-top: 18px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        filter: brightness(0.88);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .gallery-grid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: #0a0a0a;
+      }
+
+      .logs-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .log-item {
+        padding: 24px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--card);
+      }
+
+      .log-top {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: var(--fs-xs);
+        letter-spacing: 0.08em;
+        background: #222;
+        color: #fff;
+      }
+
+      .tag.soon {
+        color: var(--accent);
+        border: 1px solid var(--accent);
+        background: rgba(255, 122, 0, 0.08);
+      }
+
+      .log-status {
+        font-family: "JetBrains Mono", monospace;
+        font-size: var(--fs-xs);
+        color: var(--muted);
+        letter-spacing: 0.08em;
+      }
+
+      .log-item h3 {
+        margin: 14px 0 8px;
+        font-size: var(--fs-md);
+        line-height: 1.15;
+        text-transform: uppercase;
+      }
+
+      .log-item p {
+        margin: 0;
+        font-size: var(--fs-base);
+        color: var(--muted);
+      }
+
+      .community-box {
+        padding: clamp(30px, 6vw, 70px);
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.02)
+        );
+        text-align: center;
+      }
+
+      .community-status {
+        margin-top: 18px;
+        font-family: "JetBrains Mono", monospace;
+        color: var(--accent);
+        letter-spacing: 0.24em;
+        font-size: var(--fs-xs);
+        text-transform: uppercase;
+      }
+
+      footer {
+        padding: 48px 16px 70px;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        font-family: "JetBrains Mono", monospace;
+        font-size: var(--fs-xs);
+        letter-spacing: 0.25em;
+        color: rgba(255, 255, 255, 0.34);
+        text-transform: uppercase;
+      }
+
+      .reveal {
+        visibility: hidden;
+      }
+
+      .reveal.active {
+        visibility: visible;
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 1s var(--ease);
+      }
+
+      .reveal.active .fade-up {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .delay-1 {
+        transition-delay: 0.1s;
+      }
+
+      .delay-2 {
+        transition-delay: 0.2s;
+      }
+
+      .delay-3 {
+        transition-delay: 0.3s;
+      }
+
+      .delay-4 {
+        transition-delay: 0.4s;
+      }
+
+      @media (max-width: 980px) {
+        .megamenu-inner {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --header-height: 78px;
+        }
+
+        .topbar {
+          padding: 0 16px;
+        }
+
+        .sector-trigger {
+          padding: 0 10px;
+          letter-spacing: 0.14em;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+        }
+
+        .btn-main,
+        .btn-secondary {
+          width: 100%;
+          max-width: 360px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .megamenu-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .logo {
+          letter-spacing: 0.18em;
+        }
+
+        .hero-title {
+          letter-spacing: -0.04em;
+        }
+
+        .hero-meta {
+          letter-spacing: 0.18em;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        .fade-up,
+        .reveal.active .fade-up {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-container" aria-hidden="true">
+      <video id="bg-video" autoplay muted loop playsinline>
+        <source src="https://files.catbox.moe/3kvimz.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header>
+      <div class="topbar">
+        <a href="#home" class="logo">House of <b>Thugs</b></a>
+
+        <div class="nav-wrapper">
+          <div class="sector-trigger" tabindex="0">SITE_MAP //</div>
+          <nav class="megamenu" aria-label="Main site navigation">
+            <div class="megamenu-inner">
+              <div class="nav-col">
+                <h4>OPERATIONS</h4>
+                <a href="#download">Download</a>
+                <a href="#trailer">Trailer</a>
+                <a href="#gallery">Screenshots</a>
+              </div>
+
+              <div class="nav-col">
+                <h4>DEVELOPMENT</h4>
+                <a href="#logs">Dev Logs</a>
+                <a href="#troubleshooting">Troubleshooting</a>
+                <a href="#discord">Community</a>
+              </div>
+
+              <div class="nav-col">
+                <h4>GAME INFO</h4>
+                <a href="#about">About the Game</a>
+                <a href="#gallery">World Preview</a>
+                <a href="#trailer">Watch Footage</a>
+              </div>
+
+              <div class="nav-col">
+                <h4>STATUS</h4>
+                <p class="status-text">
+                  Build: 03.27.2026<br />
+                  Stable Release<br />
+                  20+ Missions Active
+                </p>
+                <a href="#download" class="btn-main" style="margin-top: 18px"
+                  >Get Client</a
+                >
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="home" class="section hero reveal">
+        <div class="hero-inner">
+          <p class="eyebrow fade-up">Official Game Site</p>
+
+          <h1 class="hero-title fade-up delay-1">
+            HOUSE OF<br />
+            <span class="accent">THUGS 2</span>
+          </h1>
+
+          <p class="hero-description fade-up delay-2">
+            A tense stealth experience where every break-in can go wrong. Scout
+            dangerous homes, stay out of sight, grab what you can, and escape
+            before the entire neighborhood turns on you.
+          </p>
+
+          <p class="hero-meta fade-up delay-3">
+            20+ Missions // High Risk Heists // Survival Stealth
+          </p>
+
+          <div class="hero-actions fade-up delay-4">
+            <a
+              id="downloadBtn"
+              href="https://files.catbox.moe/ob0p3q.zip"
+              download
+              class="btn-main"
+            >
+              Initialize Download
+            </a>
+            <a href="#trailer" class="btn-secondary">Watch Trailer</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section reveal">
+        <h2 class="section-heading fade-up">
+          SITE <span class="accent">DESCRIPTION</span>
+        </h2>
+        <p class="section-intro fade-up delay-1">
+          House of Thugs 2 throws players into a dark, high-pressure stealth
+          world built around infiltration, risk, and fast escapes. Each mission
+          challenges you to read the environment, avoid being caught, and make
+          it out with the score before everything collapses.
+        </p>
+      </section>
+
+      <section id="trailer" class="section reveal">
+        <h2 class="section-heading fade-up">
+          MISSION <span class="accent">TRAILER</span>
+        </h2>
+        <p class="section-intro fade-up delay-1">
+          Get a first look at the atmosphere, movement, and danger waiting
+          inside House of Thugs 2.
+        </p>
+
+        <div class="trailer-box fade-up delay-2">
+          <iframe
+            src="https://www.youtube.com/embed/GLtU2Kq4B9s"
+            title="House of Thugs 2 Trailer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="troubleshooting" class="section reveal">
+        <h2 class="section-heading fade-up">
+          INSTALL <span class="accent">TROUBLESHOOTING</span>
+        </h2>
+        <p class="section-intro fade-up delay-1">
+          Follow these steps if your browser or Windows blocks the game client
+          during download or launch.
+        </p>
+
+        <div class="protocols-grid">
+          <article class="protocol-step fade-up delay-1">
+            <h3>01 // BROWSER DOWNLOAD WARNING</h3>
+            <p>
+              If your browser flags the game as an uncommon download, open the
+              download item options, choose <b>Keep</b>, then confirm with
+              <b>Keep Anyway</b> if needed.
+            </p>
+            <img
+              src="https://files.catbox.moe/5vzagj.jpg"
+              class="protocol-img"
+              alt="Browser download warning example"
+            />
+          </article>
+
+          <article class="protocol-step fade-up delay-2">
+            <h3>02 // WINDOWS SMARTSCREEN OVERRIDE</h3>
+            <p>
+              If Windows shows a SmartScreen warning, click <b>More Info</b> and
+              then choose <b>Run Anyway</b> to continue launching the game.
+            </p>
+          </article>
+
+          <article class="protocol-step fade-up delay-3">
+            <h3>03 // RUN AS ADMINISTRATOR</h3>
+            <p>
+              Launching the installer as an administrator can help the game set
+              up save files, settings, and local content correctly.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery" class="section reveal">
+        <h2 class="section-heading fade-up">
+          SURVEILLANCE <span class="accent">FEEDS</span>
+        </h2>
+        <p class="section-intro fade-up delay-1">
+          Screenshots from the world of House of Thugs 2.
+        </p>
+
+        <div class="gallery-grid">
+          <img
+            src="https://files.catbox.moe/im072x.jpg"
+            class="fade-up delay-1"
+            alt="House of Thugs 2 gameplay screenshot 1"
+          />
+          <img
+            src="https://files.catbox.moe/jv17us.jpg"
+            class="fade-up delay-2"
+            alt="House of Thugs 2 gameplay screenshot 2"
+          />
+          <img
+            src="https://files.catbox.moe/kadmqa.jpg"
+            class="fade-up delay-3"
+            alt="House of Thugs 2 gameplay screenshot 3"
+          />
+          <img
+            src="https://files.catbox.moe/vevh0x.jpg"
+            class="fade-up delay-4"
+            alt="House of Thugs 2 gameplay screenshot 4"
+          />
+        </div>
+      </section>
+
+      <section id="logs" class="section reveal">
+        <h2 class="section-heading fade-up">
+          SYSTEM <span class="accent">LOGS</span>
+        </h2>
+        <p class="section-intro fade-up delay-1">
+          Follow the latest updates, content plans, and release milestones.
+        </p>
+
+        <div class="logs-grid">
+          <article class="log-item fade-up delay-1">
+            <div class="log-top">
+              <span class="tag soon">V2.1.0</span>
+              <span class="log-status">ETA: Q2 2026</span>
+            </div>
+            <h3>Co-op Expansion</h3>
+            <p>
+              Planned update focused on multi-player synchronization and more
+              advanced physics-based environmental interactions.
+            </p>
+          </article>
+
+          <article class="log-item fade-up delay-2">
+            <div class="log-top">
+              <span class="tag">V2.0.0</span>
+              <span class="log-status">Status: Deployed</span>
+            </div>
+            <h3>Remastered Engine Launch</h3>
+            <p>
+              The current release introduced the remastered engine, updated
+              visuals, and more than 20 missions.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="discord" class="section reveal">
+        <div class="community-box">
+          <h2 class="section-heading fade-up">
+            COMMUNITY <span class="accent">NETWORK</span>
+          </h2>
+          <p
+            class="section-intro fade-up delay-1"
+            style="margin-left: auto; margin-right: auto"
+          >
+            The official community hub is still being prepared. More social
+            links, announcements, and player updates are coming soon.
+          </p>
+          <div class="community-status fade-up delay-2">
+            Discord Status: [ Coming Soon ]
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>HOUSE_OF_THUGS.SYS // ENCRYPTED ACCESS // © 2026</footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.14 }
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      window.addEventListener("scroll", () => {
+        const scrolled = window.scrollY;
+        const video = document.getElementById("bg-video");
+        const scale = 1.08 + scrolled * 0.00008;
+        video.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      });
+
+      const downloadBtn = document.getElementById("downloadBtn");
+
+      downloadBtn.addEventListener("click", function () {
+        setTimeout(() => {
+          const troubleshootingSection =
+            document.getElementById("troubleshooting");
+          if (troubleshootingSection) {
+            troubleshootingSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }, 400);
+      });
+    </script>
+  </body>
+</html>
